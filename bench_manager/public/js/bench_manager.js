@@ -4,7 +4,8 @@ frappe.ui.toolbar.clear_cache = function() {
 	frappe.assets.clear_local_storage();
 
 	if (frappe.session.user != "Administrator") {
-		return ;
+		frappe.ui.toolbar._clear_cache();
+		return false;
 	}
 
 	const callback = response => {
